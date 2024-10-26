@@ -29,7 +29,8 @@ async def consume_order_response_messages(topic, bootstrap_servers):
             # print("TYPE", (type(inventory_data)))
             print(f"Response Data {response_data}")
                 #Ganlde insufficient stock
-            if response_data["status"] == "Unpaid":
+            if response_data["status"] == "success":
+            # if response_data["status"] == "Unpaid":
                 # Proceed with placing the order
                 session = next(get_session())
                 try:
